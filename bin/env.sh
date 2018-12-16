@@ -1,0 +1,7 @@
+PROJECT_HOME=$(cd $(dirname $0)/..;pwd)
+
+export HBASE_ZK="10.23.10.23:2181,10.23.10.24:2181,10.23.10.25:2181"
+export HBASE_ZK_PATH="/hbase"
+export PROJECT_DATA_PATH=${PROJECT_HOME}/data
+export PROJECT_JAR_PATH=${PROJECT_HOME}/lib
+export PROJECT_JAR=${PROJECT_JAR_PATH}/hbase-ops-1.0-SNAPSHOT.jar
