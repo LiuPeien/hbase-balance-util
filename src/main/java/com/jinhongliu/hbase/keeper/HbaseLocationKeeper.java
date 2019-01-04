@@ -55,7 +55,8 @@ public class HbaseLocationKeeper {
 		Map<String, String> location = loadFromFile(fileName);
 		HBaseClient client = new HBaseClient(zk, zkPath);
 
-		Map<String, String> serversInfo = client.getServersInfo(location.keySet());
+		Set<String> hostNames = new HashSet<>(location.values());
+		Map<String, String> serversInfo = client.getServersInfo(hostNames);
 		for (String region : location.keySet()) {
 			String realName = serversInfo.get(location.get(region));
 			client.moveRegion(region, realName);

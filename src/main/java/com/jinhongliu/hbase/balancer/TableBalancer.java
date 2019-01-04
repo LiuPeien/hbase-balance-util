@@ -71,7 +71,9 @@ public abstract class TableBalancer {
 		if (realRun) {
 			plan.forEach((k,v) -> {
 				try {
+					System.out.println(k + " -> " + v);
 					client.moveRegion(k, v);
+					Thread.sleep(interval);
 				} catch (Exception e) {
 					System.out.println(String.format("fail to move region: %s to server: %s", k, v));
 				}
